@@ -1,0 +1,126 @@
+
+$accent-color: #2196F3;
+$hover-color: #1976d2;
+$text-color: #212121;
+$background-color: #fff;
+$easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+
+@keyframes fadeInHeader {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulsateBtn {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInItem {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  color: $text-color;
+  background-color: $background-color;
+  line-height: 1.5;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.header {
+  background: url('../img/21.jpg') center/cover no-repeat;
+  color: white;
+  padding: 30px 0;
+  animation: fadeInHeader 1s ease-out forwards;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+
+    span {
+      color: $accent-color;
+    }
+  }
+
+  .nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $accent-color;
+      transition: width 250ms $easing;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
+    }
+  }
+
+  .contact-info a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+}
+
+.header-content {
+  text-align: center;
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    background-color: $accent-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    animation: pulsateBtn 2s infinite ease-in-out;
+
+    &:hover,
+    &:focus {
+      background-color: $hover-color;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
