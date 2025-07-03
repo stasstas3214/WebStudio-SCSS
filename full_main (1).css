@@ -1,0 +1,119 @@
+@keyframes fadeInHeader {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulsateBtn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeInItem {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  color: #212121;
+  background-color: #fff;
+  line-height: 1.5;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  background: url("../img/21.jpg") center/cover no-repeat;
+  color: white;
+  padding: 30px 0;
+  animation: fadeInHeader 1s ease-out forwards;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.header .logo span {
+  color: #2196F3;
+}
+.header .nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+}
+.header .nav a:hover, .header .nav a:focus {
+  color: #2196F3;
+}
+.header .nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #2196F3;
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header .nav a:hover::after, .header .nav a.active::after {
+  width: 100%;
+}
+.header .contact-info a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.header-content {
+  text-align: center;
+}
+.header-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.header-content .btn {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  animation: pulsateBtn 2s infinite ease-in-out;
+}
+.header-content .btn:hover, .header-content .btn:focus {
+  background-color: #1976d2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}/*# sourceMappingURL=full_main (1).css.map */
