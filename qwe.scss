@@ -1,0 +1,156 @@
+@import 'utils/variables';
+@import 'utils/placeholders';
+@import 'utils/mixins';
+@import 'utils/responsive';
+
+
+
+body {
+  font-family: $font-main;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: $color-background;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+
+  span {
+    color: $color-primary;
+  }
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: inline;
+    margin: 0 15px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.btn {
+  @extend %btn-style;
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary-dark;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.filter button {
+  background: $color-primary;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+
+  &.active {
+    background: $color-primary-dark;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary-dark;
+  }
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: $color-footer;
+  color: white;
+  transition: left 0.3s ease;
+  z-index: 2000;
+  padding: 30px 20px;
+
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+}
+
+.side-hover-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  z-index: 1999;
+}
+
+.side-hover-zone:hover + .side-menu,
+.side-menu:hover {
+  left: 0;
+}
+
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1250px;
+  margin: 0 auto;
+
+  .item {
+    position: relative;
+    overflow: hidden;
+    background: #ecf0f1;
+    padding: 0;
+    text-align: left;
+    width: 250px;
+    border-radius: 8px;
+    cursor: pointer;
+    animation: fadeInItem 0.8s ease-out forwards;
+
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color-overlay-light;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &:hover .overlay {
+      opacity: 1;
+    }
+
+    p, span {
+      padding: 10px;
+      margin: 0;
+    }
+  }
+}
